@@ -1,5 +1,6 @@
 import React from "react";
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 
 class Alert extends React.Component {
     render() {
@@ -9,15 +10,17 @@ class Alert extends React.Component {
             role: 'alert'
         }
 
-        const alertClass = cn('alert',
-            {
-                [`alert-${type}`]: true
-            });
+        const alertClass = cn('alert', `alert-${type}`);
 
         return (
             <div className={alertClass} role={alertAttrs.role}>{text}</div>
         );
     }
+}
+
+Alert.propTypes = {
+    type: PropTypes.string,
+    text: PropTypes.string
 }
 
 export default Alert;
